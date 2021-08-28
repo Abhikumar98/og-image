@@ -47,10 +47,6 @@ export function getHtml(ogImage: OgImage) {
                 .branding {
                     color: ${theme.publicSecondaryTextColor || 'black'};
                 }
-    
-                .branding {
-                    color: #4346de;
-                }
             </style>
         </head>
         <body>
