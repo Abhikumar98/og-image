@@ -34,7 +34,7 @@ export function getHtml(ogImage: OgImage) {
                 }
     
                 h1 {
-                    margin-top: 2rem
+                    margin-top: 2rem;
                     font-size: 5em;
                     font-weight: 800;
                     margin-bottom: 0;
