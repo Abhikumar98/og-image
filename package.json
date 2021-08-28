@@ -7,6 +7,7 @@
     "build": "tsc -p api/tsconfig.json && tsc -p web/tsconfig.json"
   },
   "dependencies": {
+    "@types/twemoji": "12.1.2",
     "chrome-aws-lambda": "7.0.0",
     "http": "0.0.1-security",
     "marked": "2.0.0",
