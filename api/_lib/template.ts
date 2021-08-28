@@ -57,8 +57,7 @@ export function getHtml(ogImage: OgImage) {
             <div class="container">
                 <h1>${heading || ''}</h1>
                 <h4>${subHeading || ''}</h4>
-                <span
-                    >Built with NoCodeLetters</span>
+                <span class="branding">Built with NoCodeLetters</span>
             </div>
         </body>
     </html>
