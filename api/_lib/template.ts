@@ -33,6 +33,7 @@ export function getHtml(ogImage: OgImage) {
                 h1 {
                     font-size: 5em;
                     font-weight: 800;
+                    margin-bottom: 0;
                     color: ${theme.publicPrimaryTextColor || 'black'};
                 }
                 h4 {
