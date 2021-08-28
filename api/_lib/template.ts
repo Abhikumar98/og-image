@@ -123,7 +123,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             </div>
             <div class="spacer">
             <div class="heading">${emojify(
-                md ? marked(text) : sanitizeHtml(text)
+                md ? marked('yo ooasdofhas;dlfk jlkasdjf ') : sanitizeHtml('yo ooasdofhas;dlfk jlkasdjf ')
             )}
             </div>
         </div>
