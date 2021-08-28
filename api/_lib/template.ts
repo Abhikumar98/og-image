@@ -20,9 +20,9 @@ export function getHtml(ogImage: OgImage) {
                     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
                         "Helvetica Neue", sans-serif;
+                    background: ${theme.publicBackgroundColor || 'white'};
                 }
                 .container {
-                    background: ${theme.publicBackgroundColor || 'white'};
                     display: flex;
                     flex-direction: column;
                     text-align: center;
