@@ -28,6 +28,8 @@ export function getHtml(ogImage: OgImage) {
                     text-align: center;
                     align-items: center;
                     justify-content: center;
+                    height:100%;
+                    width: 100%;
                 }
     
                 h1 {
