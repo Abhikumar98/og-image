@@ -25,7 +25,7 @@ export function getHtml(ogImage: OgImage) {
                 .container {
                     height: 630px;
                     width: 1200px;
-                    background: ${theme.publicBackgroundColor ?? 'white'};
+                    background: ${theme.publicBackgroundColor || 'white'};
                     display: flex;
                     flex-direction: column;
                     text-align: center;
@@ -36,11 +36,11 @@ export function getHtml(ogImage: OgImage) {
                 h1 {
                     font-size: 5em;
                     font-weight: 800;
-                    color: ${theme.publicPrimaryTextColor ?? 'black'};
+                    color: ${theme.publicPrimaryTextColor || 'black'};
                 }
                 h4 {
                     font-size: 3em;
-                    color: ${theme.publicSecondaryTextColor ?? 'black'};
+                    color: ${theme.publicSecondaryTextColor || 'black'};
                 }
     
                 .branding {
@@ -50,8 +50,8 @@ export function getHtml(ogImage: OgImage) {
         </head>
         <body>
             <div class="container">
-                <h1>${heading ?? ''}</h1>
-                <h4>${subHeading ?? ''}</h4>
+                <h1>${heading || ''}</h1>
+                <h4>${subHeading || ''}</h4>
                 <span
                     >Built with <span class="branding">NoCodeLetters ✨</span></span
                 >
