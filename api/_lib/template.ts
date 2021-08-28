@@ -40,6 +40,9 @@ export function getHtml(ogImage: OgImage) {
                     font-size: 3em;
                     color: ${theme.publicSecondaryTextColor || 'black'};
                 }
+                .branding {
+                    color: ${theme.publicSecondaryTextColor || 'black'};
+                }
     
                 .branding {
                     color: #4346de;
@@ -51,8 +54,7 @@ export function getHtml(ogImage: OgImage) {
                 <h1>${heading || ''}</h1>
                 <h4>${subHeading || ''}</h4>
                 <span
-                    >Built with <span class="branding">NoCodeLetters ✨</span></span
-                >
+                    >Built with NoCodeLetters</span>
             </div>
         </body>
     </html>
