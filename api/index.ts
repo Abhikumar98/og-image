@@ -1,22 +1,54 @@
+import { parse } from 'url';
 import { IncomingMessage, ServerResponse } from 'http';
-import { parseRequest } from './_lib/parser';
 import { getScreenshot } from './_lib/chromium';
 import { getHtml } from './_lib/template';
 
-const isDev = !process.env.AWS_REGION;
-const isHtmlDebug = process.env.OG_HTML_DEBUG === '1';
+export class ITheme {
+	publicPrimaryColor: string = '#4346DE';
+	publicButtonTextColor: string = '#ffffff';
+	publicSecondaryColor: string = '#f1f4f5';
+	publicPrimaryTextColor: string = '#094067';
+	publicSecondaryTextColor: string = '#5f6c7b';
+	publicBackgroundColor: string = '#ffffff';
+	publicBorderColor: string = '#d1d5da';
+	publicHeadingFont: string = 'Helvetica';
+	publicParagraphFont: string = 'Helvetica';
+}
+
+export interface OgImage {
+	readonly heading: string;
+	readonly subHeading: string;
+	readonly theme: Partial<ITheme>;
+}
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
     try {
-        const parsedReq = parseRequest(req);
-        const html = getHtml(parsedReq);
-        if (isHtmlDebug) {
-            res.setHeader('Content-Type', 'text/html');
-            res.end(html);
-            return;
-        }
-        const { fileType } = parsedReq;
-        const file = await getScreenshot(html, fileType, isDev);
+
+        const {  query } = parse(req.url || '/', true);
+    const { heading,
+        subHeading,
+        publicPrimaryTextColor,
+        publicSecondaryTextColor,
+        publicBackgroundColor, } = (query || {});
+    
+        const ogData: OgImage = {
+            heading: heading ? String(heading) : "",
+            subHeading: subHeading ? String(subHeading) : "",
+            theme: {
+                publicPrimaryTextColor: publicPrimaryTextColor ? String(publicPrimaryTextColor) : "",
+                publicSecondaryTextColor: publicSecondaryTextColor ? String(publicSecondaryTextColor) : "",
+                publicBackgroundColor: publicBackgroundColor ? String(publicBackgroundColor) : "",
+            },
+        };
+    
+        const html = getHtml(ogData);
+        // if (true) {
+        //     res.setHeader('Content-Type', 'text/html');
+        //     res.end(html);
+        //     return;
+        // }
+        const  fileType  = 'png';
+        const file = await getScreenshot(html, fileType, false);
         res.statusCode = 200;
         res.setHeader('Content-Type', `image/${fileType}`);
         res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
