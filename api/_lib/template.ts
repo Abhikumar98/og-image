@@ -30,9 +30,11 @@ export function getHtml(ogImage: OgImage) {
                     justify-content: center;
                     height:100%;
                     width: 100%;
+                    padding: 4rem;
                 }
     
                 h1 {
+                    margin-top: 2rem
                     font-size: 5em;
                     font-weight: 800;
                     margin-bottom: 0;
