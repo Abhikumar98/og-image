@@ -70,12 +70,12 @@ export function getHtml(ogImage: OgImage) {
 		<div class="container">
 			<div>
 				<div class="newsletter-name">${heading}</div>
-				${!!subHeading.length ? `<div class="heading">${subHeading}</div>` : ''}
+				${!!subHeading ? `<div class="heading">${subHeading}</div>` : ''}
 			</div>
 			<div class="branding-container">
 				<div class="branding">
-					${!!name?.length ? `<div>${name}</div>` : ''}
-					${!!twitter?.length ? `<div>@${twitter}</div>` : '' }
+					${!!name ? `<div>${name}</div>` : ''}
+					${!!twitter ? `<div>@${twitter}</div>` : '' }
 				</div>
 				<div class="profile">
 					<svg
