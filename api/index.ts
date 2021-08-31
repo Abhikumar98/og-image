@@ -18,7 +18,9 @@ export class ITheme {
 export interface OgImage {
 	readonly heading: string;
 	readonly subHeading: string;
-	readonly theme: Partial<ITheme>;
+    readonly theme: Partial<ITheme>;
+    readonly twitter?: string
+    readonly name?: string
 }
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
@@ -29,7 +31,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         subHeading,
         publicPrimaryTextColor,
         publicSecondaryTextColor,
-        publicBackgroundColor, } = (query || {});
+        publicBackgroundColor, twitter, name } = (query || {});
     
         const ogData: OgImage = {
             heading: heading ? String(heading) : "",
@@ -39,6 +41,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
                 publicSecondaryTextColor: publicSecondaryTextColor ? String(publicSecondaryTextColor) : "",
                 publicBackgroundColor: publicBackgroundColor ? String(publicBackgroundColor) : "",
             },
+            twitter: !!twitter?.length && typeof twitter === "string" ? String(twitter) : '',
+            name: !!name?.length && typeof name === "string" ? String(name) : '',
+
         };
     
         const html = getHtml(ogData);
