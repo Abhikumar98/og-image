@@ -32,6 +32,8 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         publicPrimaryTextColor,
         publicSecondaryTextColor,
         publicBackgroundColor, twitter, name } = (query || {});
+
+        console.log(twitter, name)
     
         const ogData: OgImage = {
             heading: heading ? String(heading) : "",
