@@ -43,8 +43,8 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
                 publicSecondaryTextColor: publicSecondaryTextColor ? String(publicSecondaryTextColor) : "",
                 publicBackgroundColor: publicBackgroundColor ? String(publicBackgroundColor) : "",
             },
-            twitter: !!twitter?.length && typeof twitter === "string" ? String(twitter) : '',
-            name: !!name?.length && typeof name === "string" ? String(name) : '',
+            twitter: typeof twitter === "string" ? String(twitter) : '',
+            name: typeof name === "string" ? String(name) : '',
 
         };
     
